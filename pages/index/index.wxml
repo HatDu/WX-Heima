@@ -1,0 +1,29 @@
+<view>
+    <!-- 搜索框 -->
+    <SearchInput></SearchInput>
+    <!-- 搜索框结束 -->
+
+    <view class="index_swiper">
+        <!-- 
+            1. swipper标签存在默认的宽度和高度
+                100% * 150px
+            2. image标签也存在默认宽高
+                320px*320px
+            3. 设计原图的宽高
+                先看一下原图宽高： 150*36
+                让图片的高度自适应，宽度=100%，设置image标签widthFix，参见index.less
+                让swippr的高度变得和图片的高度一样
+            4. 图片标签
+                widthFix，让图片的标签宽高 与 图片标签内容的宽高都等比例的发生变化
+         -->
+        <swiper autoplay indicator-dots circular>
+            <swiper-item 
+                wx:for="{{swiperList}}"
+                wx:key="id">
+                <navigator>
+                    <image src="{{item.picUrl}}" mode="widthFix"/>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+</view>
